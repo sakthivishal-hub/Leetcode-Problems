@@ -1,0 +1,45 @@
+Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+To maximize the product (nums[i] - 1) * (nums[j] - 1), we need to pick the two largest numbers from the array. Since subtracting 1 preserves the order (bigger number stays bigger after -1), finding the top two maximum values gives the optimal answer.
+
+Approach
+<!-- Describe your approach to solving the problem. -->
+Initialize maxi1 and maxi2 as negative infinity to store the largest and second largest numbers.
+Traverse the array once:
+If the current element is greater than maxi1, shift maxi1 into maxi2 and update maxi1.
+Else if it is greater than maxi2, update maxi2.
+Otherwise, skip.
+After the loop, return (maxi1 - 1) * (maxi2 - 1).
+This avoids sorting the array and finds the two largest values in a single pass.
+
+Complexity
+Time complexity: 
+O(n)
+O(n)
+We traverse the array only once.
+
+Space complexity: 
+O(1)
+O(1)
+Only two extra variables are used regardless of input size.
+
+Code
+python3
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxi1=float("-inf")
+        maxi2=float("-inf")
+        for i in nums:
+            if i>maxi1:
+                maxi2=maxi1
+                maxi1=i
+            elif i>maxi2:
+                maxi2=i
+            else:
+                continue
+        return (maxi1-1)*(maxi2-1)
+
+
+
+
