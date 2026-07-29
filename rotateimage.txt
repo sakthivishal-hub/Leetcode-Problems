@@ -1,0 +1,41 @@
+Intuition
+Rotating a matrix 90° clockwise looks tricky at first, but there's a beautiful trick:
+Transpose the matrix, then reverse each row → same as rotating 90° clockwise!
+
+Doing it in-place saves extra space.
+
+Approach
+Transpose the matrix — swap matrix[i][j] with matrix[j][i] (flip along the main diagonal).
+Only iterate j from i to n to avoid swapping twice.
+Reverse each row — this flips the transposed matrix horizontally, giving the final 90° clockwise rotation.
+Visual Example
+text
+
+Original:        Transposed:      Reversed rows:
+1 2 3            1 4 7            7 4 1
+4 5 6     →      2 5 8     →      8 5 2
+7 8 9            3 6 9            9 6 3
+
+Complexity
+Time complexity: 
+O(n2)
+O(n2)
+We visit each cell a constant number of times (once for transpose, once for reverse).
+
+Space complexity: 
+O(1)
+O(1)
+In-place rotation — no extra matrix used.
+Code
+python3
+
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        for i in range(len(matrix)):
+            for j in range(i, len(matrix[0])):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            matrix[i].reverse()
+
+
+
+
