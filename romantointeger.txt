@@ -1,0 +1,44 @@
+Intuition
+
+Roman numerals are usually added from left to right. However, when a smaller numeral appears before a larger numeral (such as IV or IX), it represents subtraction instead of addition. So, while traversing the string, compare the current character with the next one. If the current value is smaller, subtract it; otherwise, add it.
+
+Approach
+Create a dictionary to map each Roman numeral to its integer value.
+Initialize value = 0.
+Traverse the string from left to right.
+If the current numeral is smaller than the next numeral, subtract its value.
+Otherwise, add its value.
+Return the final accumulated value.
+Complexity
+Time complexity: O(n)
+Space complexity: O(1)
+Code
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        romans = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+        }
+
+        value = 0
+
+        for i in range(len(s)):
+            if i + 1 < len(s) and romans[s[i]] < romans[s[i + 1]]:
+                value -= romans[s[i]]
+            else:
+                value += romans[s[i]]
+
+        return value
+
+Note: You can safely remove this line from your original code because it is never used:
+
+t = romans[s[i+1]] - romans[s[i]]
+
+The subtraction is already handled by:
+
+value -= romans[s[i]]
