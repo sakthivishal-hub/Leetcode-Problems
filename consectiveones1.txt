@@ -8,7 +8,7 @@ Traverse the array using the right pointer.
 Whenever we encounter a 0, the current sequence of 1s ends.
 Calculate its length using right - left and update the maximum length.
 Start a new sequence by setting left = right + 1.
-After the loop, check the last sequence because the array may end with 1s.
+After the loop, check the last sequence because the array may end with 1s
 Complexity
 
 Time Complexity: O(n)
