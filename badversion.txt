@@ -3,8 +3,8 @@ The versions are sorted in a way that all versions before the first bad version 
 
 # Approach
 - Initialize two pointers:
-  - `low = 1`
-  - `high = n`
+  - `low = 1
+  - `high = n
 - While `low < high`:
   - Compute `mid = (low + high) // 2`.
   - If `isBadVersion(mid)` is `True`, the first bad version is at `mid` or before it, so set `high = mid`.
