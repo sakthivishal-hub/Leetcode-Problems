@@ -6,7 +6,7 @@ The versions are sorted in a way that all versions before the first bad version 
   - `low = 1
   - `high = n
 - While `low < high`:
-  - Compute `mid = (low + high) // 2`.
+  - Compute `mid = (low + high) // 2`
   - If `isBadVersion(mid)` is `True`, the first bad version is at `mid` or before it, so set `high = mid`.
   - Otherwise, the first bad version must be after `mid`, so set `low = mid + 1`.
 - When the loop ends, `low` (or `high`) points to the first bad version
