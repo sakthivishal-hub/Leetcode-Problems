@@ -7,7 +7,7 @@ class Solution:
         t.sort()
         left,right=0,0
         while left<len(s) and right<len(s):
-            if s[left]!=t[right]:
+            if s[left]!=t[right]
                 return t[right]
             left+=1
             right+=1
